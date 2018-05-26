@@ -5,17 +5,19 @@ import {Bootstrap, Grid, Row, Col,Alert,Tab,Tabs,ListGroupItem,ListGroup,
 Navbar,FormGroup,FormControl,Button,Image} from 'react-bootstrap';
 import NavBarCustom from './NavBarCustom.js'
 import { Router, Route, Switch } from 'react-router'
+import axios from 'axios'
 
 class Contest extends Component {
   
-
-
+//http://app-f36071be-aef3-41b9-b276-9f1aaf8439bd.cleverapps.io/tasksget
+//http://localhost:3000/tasksget
     add=()=>{
-        return fetch('http://app-f36071be-aef3-41b9-b276-9f1aaf8439bd.cleverapps.io/tasksget',{
+        
+        /*return fetch('http://localhost:5000/tasksget',{
             method:"POST",
             header:{
                 Accept: 'application/json',
-                'Contenr-Type':'application/json',         
+                'Contenr-Type':'application/x-www-form-urlencoded',         
             },
             body: JSON.stringify({
                 "type": "select",
@@ -36,8 +38,20 @@ class Contest extends Component {
         .catch((error) => {
         console.error(error);
         });
+        */
 
+       axios.post('http://localhost:5000/tasksget', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     } 
+
 
   render() {
     return (
