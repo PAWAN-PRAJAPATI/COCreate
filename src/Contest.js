@@ -41,9 +41,13 @@ class Contest extends Component {
         */
 
        axios.post('http://localhost:5000/tasksget', {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
-      })
+        method: 'post',
+        url: 'http://localhost:5000/tasksget',
+        data: {
+          firstName: 'Fred',
+          lastName: 'Flintstone'
+        }
+       })
       .then(function (response) {
         console.log(response);
       })
