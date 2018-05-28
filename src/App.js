@@ -8,6 +8,7 @@ import NavBarCustom from './NavBarCustom.js'
 import { Router, Route, Switch } from 'react-router'
 import Contests from './Contests.js'
 import  Contest  from "./Contest.js";
+import contest_submission from "./contest_submission.js"
 
 class App extends Component {
   
