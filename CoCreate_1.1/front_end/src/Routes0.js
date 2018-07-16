@@ -4,7 +4,7 @@ import Home from './routes/Home'
 import Login from './routes/Login'
 import RoutesContest from './RoutesContest'
 import Routes from './Routes';
-
+import Err from './routes/Err'
 import Cookies from 'universal-cookie';
 import {GoogleLogin,GoogleLogout} from 'react-google-login';
 import React, { Component } from 'react';
@@ -33,18 +33,13 @@ export default class Routes0   extends Component{
     return(
     <Router>
       <div>
-
-
-  
+        
         <hr />
-
 
         <Route path="/" exact component={Routes} />
         <Route path="/login" exact component={Login} />
         <Route path= "/contests/:id"  component={RoutesContest} />
-
-
-
+        <Route path="/err" exact={true} component={Err}/>
       </div>
     </Router>
     

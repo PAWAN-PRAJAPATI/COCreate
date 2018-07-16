@@ -11,9 +11,10 @@ export default class App extends Component {
   
     }
     responseGoogle=(response)=>{
+      
         const id_token = response.Zi.id_token
         console.log('#COOKIE id_token:',id_token)
-        cookies.set('id_token', id_token, { path: '/' });
+        cookies.set('id_token', id_token, { path: '/'});
         window.location= "http://localhost:3000"
         //this.getUser(id_token)
         BrowserRouter.goBack()

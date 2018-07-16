@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { verifyUser,test } from "./../ApiCalls";
+import { verifyUser,test, getUser } from "./../ApiCalls";
 import {mySubmission} from "./../ApiCalls"
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
@@ -12,41 +12,23 @@ export default class App extends Component {
     }
 
     componentWillMount(){
+      getUser((user)=>console.log("user"))
+
       console.log("componentWillMount Submission")
-      const id_token =  cookies.get('id_token')
-      console.log(id_token)
-      this.getUser(id_token)
     }
 
-    getUser(id_token){
-        if(id_token && id_token!="logout"){
-          fetch('https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' + id_token)
-          .then((response) => response.json())
-          .then((responseJson) => {
-            console.log(responseJson)
-            //this.setState({"name":responseJson.family_name})
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }
-      else{
-        window.location = "http://localhost:3000/login"
-      }
-    }
 
     submit=()=>{
+      const cid = this.props.match.params.id
       const id_token = cookies.get("id_token")
-      mySubmission(this.state,id_token,this.callback)
+      mySubmission(this.state,id_token,cid,(result)=>console.log(result))
     }
-    callback=(result)=>{
-      console.log(result)
-    }
+
     
   
     render() {
 
-  
+      console.log(this.props.match)
       return (
         <div>
           <p>This is Sub</p>
