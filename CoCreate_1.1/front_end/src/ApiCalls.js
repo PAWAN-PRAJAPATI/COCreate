@@ -73,6 +73,23 @@ export function getUser(callback){
   }
 }
 
+
+export function getContestContris(callback,cid){
+
+  fetch(url+"/getcontestcontris?cid=" + cid)
+  .then((response) => response.json())
+  .then((responseJson) => {
+    console.log("getcontestcontri success")
+    callback(responseJson)
+  })
+  .catch((error) => {
+    console.log("getcontestcontri error")
+    console.error(error);
+    callback(error)
+  }); 
+
+}
+
 export function verifyContest(callback,cid){
 
   fetch(url+"/verifycontest?cid=" + cid)

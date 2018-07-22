@@ -1,3 +1,4 @@
+import {Grid,Row,Col,Panel} from "react-bootstrap"
 
 import React, { Component } from 'react';
 import { verifyUser,test, getUser } from "./../ApiCalls";
@@ -31,9 +32,32 @@ export default class App extends Component {
       console.log(this.props.match)
       return (
         <div>
-          <p>This is Sub</p>
-          <input type="text" onChange={(event)=>this.setState({title:event.target.value})}/>
-          <button onClick={this.submit}>Submit</button>
+          <Grid style={{backgroundColor:'',border:10, height:'800px'}}>
+          <Row  style={{backgroundColor:'',borderStyle:'rounded',marginTop:10,border:'10px', justifyContent:'center'}}>
+          <Col xs={9}>
+              <Panel style = {{padding:10}}>
+
+              <input style = {{width:'100%',marginBottom:20, border:'none',outline:'none',fontSize:30}} type="text" onChange={(event)=>this.setState({title:event.target.value})} placeholder="Title"/><br/>
+              <textarea  style = {{width:'100%',height:'100px' ,border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({disc:event.target.value})} placeholder="Explain your idea in few lines"/><br/>
+
+              </Panel>
+
+            </Col>
+
+            <Col xs={9}>
+            <Panel style = {{padding:10}}>
+
+              <h2 style={{marginBottom:20}}>Description</h2>
+              <h4 style={{marginBottom:20}}>Explain your idea in detailed ad possible</h4>
+              <textarea  style = {{width:'100%',height:'500px', border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({disc:event.target.value})} placeholder="Description"/><br/>
+              </Panel>
+
+            </Col>
+            <Col xs={12}>
+              <button onClick={this.submit}>Submit</button>
+            </Col>
+            </Row>
+          </Grid>
         </div>
   
       );

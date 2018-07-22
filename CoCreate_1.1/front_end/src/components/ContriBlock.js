@@ -41,8 +41,9 @@ class Block extends Component {
   }
 
   getToContest=()=>{
+    console.log("contriblock:",this.props.match.params)
     console.log("getToContest")
-    window.location = "http://localhost:3000/contests/" + this.props.data._id
+    //window.location = this.props. + this.props.data._id
   }
 
 
@@ -51,17 +52,17 @@ class Block extends Component {
     return (
       <Router>
       <div>
-      <a href = {"/contests/" + this.props.data._id+"/overview"}>
-      <div className="nav-link" style={{padding:'10px'}} >
+      <a href={this.props.match.url + "/" + this.props.data._id} >
+      <div style={{padding:'10px'}} >
         <Grid style={this.state.hoverStyle} onClick={this._gotoContest} className='hovereffect' onMouseOver={this.onOver} onMouseOut={this.onOut}>
-          <Row>
+          <Row >
             <Col>
               <Image src={this.props.src} style={{width:'100%',height:'100px'}} />
             </Col>
           </Row>
-          <Row style={{overFlow:'hide'}}>
-            <Col className="fieldLabel" style={{textAlign:'center'}}>
-                {this.props.data.title}
+          <Row>
+            <Col className="fieldLabel">
+                 <p style={{fontSize: 16,textAlign:"center"}}><b>{this.props.data.title}</b></p>
             </Col>
           </Row>
           <Row style={{height:'45%' ,overFlow:'hide'}}>
@@ -70,17 +71,15 @@ class Block extends Component {
             </Col>
           </Row>
             
-          <Row >
-         
-              <Col xs={2} xsOffset={1} >
-              {this.props.data.logs.views}
+          <Row>
+          <hr/>
+              <Col xs={2} xsOffset={1} style={{backgroundColor:'white'}}>
               </Col>
-              <Col xs={0} style={{backgroundColor:'white'}}>
+              <Col xs={1} style={{backgroundColor:'white'}}>
               <Image  style={{marginLeft:'7px', height:'19px',width:'20px'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/OOjs_UI_icon_eye.svg/1024px-OOjs_UI_icon_eye.svg.png"/>
               </Col>
-              <Col xs={2}  xsOffset={3}  style={{marginTop:'3px',backgroundColor:'white'}}>
+              <Col xs={2}  xsOffset={2}  style={{marginTop:'3px',backgroundColor:'white'}}>
                 <div>
-                {this.props.data.logs.contris}
                 </div>
               </Col>
               <Col xs={1}  style={{backgroundColor:'white'}}>

@@ -3,7 +3,7 @@ import Contests from './routes/Contests'
 import Home from './routes/Home'
 import Login from './routes/Login'
 import RoutesContest from './RoutesContest'
-
+import {Grid,Row,Col} from "react-bootstrap"
 import Cookies from 'universal-cookie';
 import {GoogleLogin,GoogleLogout} from 'react-google-login';
 import React, { Component } from 'react';
@@ -58,44 +58,42 @@ export default class Routes   extends Component{
     return(
     <Router>
       <div>
-
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/contests">contests</Link>
-          </li>
-          <li>
-            <Link to="/for_corporates">for_corporates</Link>
-          </li>
-          <li>
-            <Link to="/for_contributors">for_contributors</Link>
-          </li>
-          
-          {this.state.name ?
-            <li  onClick = {this.logout}>
-              <Link to="/logout">Logout</Link>
-              <p>{this.state.name}</p>
-           </li>
-          :
-            <li>
-              <div>
-                <a href="http://localhost:3000/login">Login</a>
-              </div>
-            </li>
-            
-        }
-
-        </ul>
+      <Grid>
+        <Row>
+          <Col >
+                <Link className="nav-link" style={{fontSize:18}} to="/home">Home</Link>
+          </Col> 
+          <Col>   
+                <Link  className="nav-link"  style={{fontSize:18}} to="/contests">contests</Link>
+          </Col>   
+          <Col>
+              <Link  className="nav-link"  style={{fontSize:18}} to="/for_corporates">For Corporates</Link>
+          </Col>   
+          <Col x>  
+                <Link  className="nav-link"  style={{fontSize:18}} to="/for_contributors">For Contributors</Link>
+          </Col>   
   
+              {this.state.name ?
+              
+              <Col xsOffset={5} onClick={this.logout} >
+                  <p style={{fontSize:18}}>{this.state.name}</p>
+              </Col>
+              
+              :
+                <Col  xsOffset={5} smOffset={4}>
+                  <div style={{backgroundColor:''}}>
+                    <a   style={{fontSize:18}} className="nav-link" href="http://localhost:3000/login">Login</a>
+                  </div>
+                </Col>
+            }
+
+        </Row>
+
         <hr />
 
+        </Grid>
 
         <Route path="/contests" exact component={Contests} />
-
-
-
 
       </div>
     </Router>
@@ -103,4 +101,6 @@ export default class Routes   extends Component{
     )
   }
 }
+
+
 

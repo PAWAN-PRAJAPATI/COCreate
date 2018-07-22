@@ -3,6 +3,8 @@ import Contests from './routes/Contests'
 import Home from './routes/Home'
 import Login from './routes/Login'
 import RoutesContest from './RoutesContest'
+import SubmissionContest from './routes/SubmissionContests'
+
 import Routes from './Routes';
 import Err from './routes/Err'
 import Cookies from 'universal-cookie';
@@ -38,6 +40,8 @@ export default class Routes0   extends Component{
 
         <Route path="/" exact component={Routes} />
         <Route path="/login" exact component={Login} />
+        <Route path= "/contribute/:id/"  component={SubmissionContest} />
+
         <Route path= "/contests/:id"  component={RoutesContest} />
         <Route path="/err" exact={true} component={Err}/>
       </div>

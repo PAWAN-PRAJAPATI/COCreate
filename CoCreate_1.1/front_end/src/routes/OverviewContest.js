@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { verifyUser,test, getContestOverview } from "./../ApiCalls";
+import {Grid,Row,Col,Button,Panel} from "react-bootstrap"
 
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
@@ -26,12 +27,34 @@ export default class App extends Component {
     render() {
 
       console.log(this.props.match,"match")
-      console.log(this.state)
+      console.log(this.state,"state")
+      console.log(this.props,",this props")
       const c_id = this.props.match.params.id
       if(this.state._id){
         return (
           <div>
-            <p> This is Contest Overview: {c_id} </p>
+            <Grid style={{backgroundColor:'', height:'800px'}}>
+            
+            <Row  style={{backgroundColor:'',borderStyle:'rounded',marginTop:10,border:'10px', justifyContent:'center'}}>
+            
+            <Col xs={9} style={{backgroundColor:'',border:10}}>
+            <Panel style = {{padding:10}}>
+              <p style = {{marginBottom:20,fontSize:30}}>{this.state.title}</p>
+              <p  style = {{width:'100%',fontSize:20}}>{this.state.disc}</p>
+
+            </Panel>
+
+            </Col>>Explain ur idea in Explain ur idea in Explain ur idea in Explain ur idea in
+
+            <Col xs={9}>
+            <Panel style = {{padding:10}}>
+
+              <h2 style={{marginBottom:20}}>Description</h2>
+              <p  style = {{width:'100%',height:'500px',fontSize:20}} type="text">Description Description Description Description Description</p>
+            </Panel>
+            </Col>
+            </Row>
+          </Grid>
           </div>
     
         );

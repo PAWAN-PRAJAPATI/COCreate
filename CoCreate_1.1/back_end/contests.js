@@ -9,7 +9,7 @@ var ObjectID = require('mongodb').ObjectID
 
 var appMongo = require("./appMongo")
 
-var contests_col = new appMongo("user64","contests")
+var contests_col = new appMongo("user64","contest")
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -36,6 +36,13 @@ app.post('/submission',verifyUser, function (req, res, next) {
     res.send(JSON.stringify({asdf:"asd"}))
 })
 
+/*
+db.test.aggregate(
+    { $match: {_id: ObjectId("512e28984815cbfcb21646a7")}},
+    { $unwind: '$list'},
+    { $match: {'list.a': {$gt: 3}}},
+    { $group: {_id: '$_id', list: {$push: '$list.a'}}})
+*/
 app.get('/',(req,res,next)=>{
 
     /*

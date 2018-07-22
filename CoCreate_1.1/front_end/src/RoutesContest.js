@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
-//import { verifyUser,test } from "./../ApiCalls";
+import {Grid,Row,Col,Button} from "react-bootstrap"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './routes/Home'
 import OverviewContest from './routes/OverviewContest'
 import SubmissionContest from './routes/SubmissionContests'
 import { getUser,verifyContest } from './ApiCalls';
-
+import ContributionContest from './routes/ContributionsContest'
 
 
 var URL = require('url-parse');
@@ -45,29 +45,39 @@ export default class ViewContest extends Component {
       return (
 
         <Router>
-        <div>
+          <div>
+          <Grid >
   
-          <ul>
+          <Row style={{justifyContent:'center'}}>
+          <Col >
+                <a className="nav-link" style={{fontSize:18}} href={"/"}>Home</a>
+          </Col>
 
-            <li>
-              <Link to={url+"/overview"}>overviwe</Link>
-            </li>
-            <li>
-              <Link to={url+"/details"}>details</Link>
-            </li>
-            <li>
-              <Link to={url+"/submission/"}>submission</Link>
-            </li>
-            <li>
-              <Link to={url+"/contributions"}>contributions</Link>
-            </li>        
+          <Col >
+                <Link className="nav-link" style={{fontSize:18}} to={url + "/overview"}>Overview</Link>
+          </Col> 
+          <Col>   
+                <Link  className="nav-link"  style={{fontSize:18}} to={url + "/details"}>Details</Link>
+          </Col>   
+          <Col>
+              <Link  className="nav-link"  style={{fontSize:18}} to={url + "/contributions"}>Contributions</Link>
+          </Col>   
+          <Col xsOffset={4}>  
+                <a  className="nav-link"  style={{fontSize:18}} href={"/contribute/"+this.props.match.params.id}>  
+                <Button bsStyle="info" style={{fontSize:18}}>Submit Idea</Button></a>
+          </Col>   
   
-          </ul>
+        </Row>
     
           <hr />
 
-          <Route path={path+"/overview"} exact component={OverviewContest} />
-          <Route path={path+"/submission"} exact component={SubmissionContest} />
+
+
+        </Grid>
+
+
+        <Route path={path+"/overview"} exact component={OverviewContest} />
+        <Route path={path+"/contributions"} exact component={ContributionContest} />
 
         </div>
       </Router>
