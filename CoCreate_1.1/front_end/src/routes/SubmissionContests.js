@@ -37,19 +37,20 @@ export default class App extends Component {
           <Col xs={9}>
               <Panel style = {{padding:10}}>
 
-              <input style = {{width:'100%',marginBottom:20, border:'none',outline:'none',fontSize:30}} type="text" onChange={(event)=>this.setState({title:event.target.value})} placeholder="Title"/><br/>
-              <textarea  style = {{width:'100%',height:'100px' ,border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({disc:event.target.value})} placeholder="Explain your idea in few lines"/><br/>
+                <input style = {{width:'100%',marginBottom:20, border:'none',outline:'none',fontSize:30}} type="text" onChange={(event)=>this.setState({title:event.target.value})} placeholder="Title"/><br/>
+                <textarea  style = {{width:'100%',height:'100px' ,border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({semi_disc:event.target.value})} placeholder="Explain your idea in few lines"/><br/>
 
               </Panel>
 
             </Col>
 
             <Col xs={9}>
-            <Panel style = {{padding:10}}>
+              <Panel style = {{padding:10}}>
 
-              <h2 style={{marginBottom:20}}>Description</h2>
-              <h4 style={{marginBottom:20}}>Explain your idea in detailed ad possible</h4>
-              <textarea  style = {{width:'100%',height:'500px', border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({disc:event.target.value})} placeholder="Description"/><br/>
+                <h2 style={{marginBottom:20}}>Description</h2>
+                <h4 style={{marginBottom:20}}>Explain your idea in detailed ad possible</h4>
+                <textarea  style = {{width:'100%',height:'500px', border:'none',outline:'none',fontSize:20}} type="text" onChange={(event)=>this.setState({disc:event.target.value})} placeholder="Description"/><br/>
+              
               </Panel>
 
             </Col>

@@ -51,8 +51,8 @@ class Block extends Component {
     return (
       <Router>
       <div>
-      <a href = {"/contests/" + this.props.data._id+"/overview"}>
-      <div className="nav-link" style={{padding:'10px'}} >
+      <a className="nav-link" href = {"/contests/" + this.props.data._id+"/overview"}>
+      <div  style={{padding:'10px'}} >
         <Grid style={this.state.hoverStyle} onClick={this._gotoContest} className='hovereffect' onMouseOver={this.onOver} onMouseOut={this.onOut}>
           <Row>
             <Col>
