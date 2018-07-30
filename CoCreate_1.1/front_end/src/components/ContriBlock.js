@@ -67,7 +67,7 @@ class Block extends Component {
           </Row>
           <Row style={{height:'55%' , overFlow:'hide',justifyContent:'center'}}>
             <Col className="card-text" style={{overFlow:'hide',textAlign:'center'}}>
-                <div style={{overflow: 'hidden',height:'100px', backgroundColor:'red'}}>{this.props.data.subm.semi_disc}</div>
+                <div style={{overflow: 'hidden',height:'100px', backgroundColor:''}}>{this.props.data.subm.semi_disc}</div>
             </Col>
           </Row>
             

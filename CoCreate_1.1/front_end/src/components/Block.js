@@ -59,7 +59,7 @@ class Block extends Component {
               <Image src={this.props.src} style={{width:'100%',height:'100px'}} />
             </Col>
           </Row>
-          <Row style={{overFlow:'hide'}}>
+          <Row style={{overFlow:'hide',justifyContent:'center',marginBottom:10}}>
             <Col className="fieldLabel" style={{textAlign:'center'}}>
                 {this.props.data.title}
             </Col>

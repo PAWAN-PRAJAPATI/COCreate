@@ -58,6 +58,7 @@ export default class Routes   extends Component{
     return(
     <Router>
       <div>
+      <hr/>
       <Grid>
         <Row>
           <Col >
@@ -80,7 +81,7 @@ export default class Routes   extends Component{
               </Col>
               
               :
-                <Col  xsOffset={5} smOffset={4}>
+                <Col  xsOffset={5}>
                   <div style={{backgroundColor:''}}>
                     <a   style={{fontSize:18}} className="nav-link" href="http://localhost:3000/login">Login</a>
                   </div>

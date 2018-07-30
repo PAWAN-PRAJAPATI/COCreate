@@ -43,6 +43,23 @@ export function mySubmission(subm,id_token,cid,callback){
   });
 }
 
+
+export function getContriOverview(callback,cid,contri_id){
+
+  fetch(url+"/getcontrioverview?cid=" + cid + "&contri_id=" + contri_id)
+  .then((response) => response.json())
+  .then((responseJson) => {
+    console.log("getcontestcontri success")
+    callback(responseJson)
+  })
+  .catch((error) => {
+    console.log("getcontestcontri error")
+    console.error(error);
+    callback(error)
+  }); 
+
+}
+
 export function getUser(callback){
     const id_token = cookies.get("id_token")
     if(id_token && id_token!="logout"){

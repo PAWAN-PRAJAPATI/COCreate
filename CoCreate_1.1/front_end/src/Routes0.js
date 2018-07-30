@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router,Switch, Route, Link } from "react-router-dom";
 import Contests from './routes/Contests'
 import Home from './routes/Home'
 import Login from './routes/Login'
 import RoutesContest from './RoutesContest'
 import SubmissionContest from './routes/SubmissionContests'
+import ContriView from './routes/ContriView'
 
 import Routes from './Routes';
 import Err from './routes/Err'
@@ -33,18 +34,20 @@ export default class Routes0   extends Component{
   render(){
     console.log(this.state)
     return(
-    <Router>
-      <div>
-        
-        <hr />
+      <Router>
+        <Switch>
+          
+            <Route path="/" exact component={Routes} />
+            <Route path="/login" exact component={Login} />
+            <Route path= "/contribute/:id/"   component={SubmissionContest} />
+            <Route path= "/contests/:id/contributions/:contri_id"   component={ContriView} />
 
-        <Route path="/" exact component={Routes} />
-        <Route path="/login" exact component={Login} />
-        <Route path= "/contribute/:id/"  component={SubmissionContest} />
+            <Route path= "/contests/:id"  component={RoutesContest} />
 
-        <Route path= "/contests/:id"  component={RoutesContest} />
-        <Route path="/err" exact={true} component={Err}/>
-      </div>
+           
+            <Route path="/err" exact={true} component={Err}/>
+          
+        </Switch>
     </Router>
     
     )

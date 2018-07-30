@@ -91,6 +91,32 @@ app.get("/getcontestcontris",(req,res,next)=>{
     },req,res,next)
 
 })
+app.get("/getcontrioverview",(req,res,next)=>{
+    const cid = new ObjectID(req.query.cid)
+    const contri_id = new ObjectID(req.query.contri_id)
+    console.log(cid,contri_id)
+    contest_col.connect((col)=>{
+        col.aggregate([
+                {
+                   $project: {
+                      contris: {
+                         $filter: {
+                            input: "$contris",
+                            as: "contris",
+                            cond: { $eq:["$$contris._id",contri_id] }
+                         }
+                      }
+                   }
+                }
+             ]
+        ).toArray((err,result)=>{
+            console.log(result)
+            res.send(result[0])
+        }) 
+    },req,res,next)
+
+})
+
 
 
 

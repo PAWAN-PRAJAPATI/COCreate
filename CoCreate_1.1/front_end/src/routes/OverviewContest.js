@@ -39,19 +39,23 @@ export default class App extends Component {
             
             <Col xs={9} style={{backgroundColor:'',border:10}}>
             <Panel style = {{padding:10}}>
+
               <p style = {{marginBottom:20,fontSize:30}}>{this.state.title}</p>
-              <p  style = {{width:'100%',fontSize:20}}>{this.state.disc}</p>
+              <p  style = {{width:'100%',fontSize:20}}>{this.state.semi_disc}</p>
 
             </Panel>
 
-            </Col>>Explain ur idea in Explain ur idea in Explain ur idea in Explain ur idea in
+            </Col>
 
             <Col xs={9}>
-            <Panel style = {{padding:10}}>
 
-              <h2 style={{marginBottom:20}}>Description</h2>
-              <p  style = {{width:'100%',height:'500px',fontSize:20}} type="text">Description Description Description Description Description</p>
-            </Panel>
+              <Panel style = {{padding:10}}>
+
+                <h2 style={{marginBottom:20}}>Description</h2>
+                <p  style = {{width:'100%',height:'500px',fontSize:20}} type="text">{this.state.disc}</p>
+                
+              </Panel>
+              
             </Col>
             </Row>
           </Grid>

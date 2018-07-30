@@ -45,6 +45,7 @@ export default class App extends Component {
         return (
           <Router>
             <div style={{ display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
+            
               {blocks}
 
             </div>

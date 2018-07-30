@@ -4,6 +4,8 @@ import {Grid,Row,Col,Button} from "react-bootstrap"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './routes/Home'
 import OverviewContest from './routes/OverviewContest'
+import ContriView from './routes/ContriView'
+
 import SubmissionContest from './routes/SubmissionContests'
 import { getUser,verifyContest } from './ApiCalls';
 import ContributionContest from './routes/ContributionsContest'
@@ -46,6 +48,7 @@ export default class ViewContest extends Component {
 
         <Router>
           <div>
+            <hr/>
           <Grid >
   
           <Row style={{justifyContent:'center'}}>
@@ -78,6 +81,7 @@ export default class ViewContest extends Component {
 
         <Route path={path+"/overview"} exact component={OverviewContest} />
         <Route path={path+"/contributions"} exact component={ContributionContest} />
+
 
         </div>
       </Router>

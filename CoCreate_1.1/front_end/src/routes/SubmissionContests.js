@@ -1,4 +1,4 @@
-import {Grid,Row,Col,Panel} from "react-bootstrap"
+import {Grid,Row,Col,Panel,Button} from "react-bootstrap"
 
 import React, { Component } from 'react';
 import { verifyUser,test, getUser } from "./../ApiCalls";
@@ -22,7 +22,10 @@ export default class App extends Component {
     submit=()=>{
       const cid = this.props.match.params.id
       const id_token = cookies.get("id_token")
-      mySubmission(this.state,id_token,cid,(result)=>console.log(result))
+      mySubmission(this.state,id_token,cid,(result)=>{
+        console.log(result)
+        window.location="http://localhost:3000/contests/"+this.props.match.params.id+"/overview"
+      })
     }
 
     
@@ -55,7 +58,7 @@ export default class App extends Component {
 
             </Col>
             <Col xs={12}>
-              <button onClick={this.submit}>Submit</button>
+            <a><Button onClick={this.submit} bsStyle="info" style={{fontSize:18}}>Submit Idea</Button></a>
             </Col>
             </Row>
           </Grid>
